@@ -5,11 +5,11 @@ cache:
     - C:\Users\appveyor\.opam
 
 install:
-    - powershell setup-esy.ps1
+    - ./setup-esy.ps1
 
 build_script:
     # Reset %PATH% to avoid cygwin DLL conflicts with cause
     # *** fatal error - cygheap base mismatch detected
     - echo $PATH
     - set PATH=C:\Windows\System32;C:\Program Files\Git\cmd;C:\Windows;C:\Program Files (x86)\nodejs;C:\Users\appveyor\AppData\Roaming\npm;C:\projects\esy\node_modules\esy-bash\.cygwin\bin;C:\Program Files\AppVeyor\BuildAgent;C:\Windows\System32\WindowsPowerShell\v1.0;
-    - powershell build-esy.ps1
+    - ./build-esy.ps1
