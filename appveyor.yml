@@ -15,4 +15,6 @@ build_script:
     - powershell ./build-esy.ps1
 
 test_script:
+    - set ESY=C:/projects/esy/_release/_build/default/esy/bin/esyCommand.exe
+    - echo $ESY
     - node test.js
