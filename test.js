@@ -158,10 +158,21 @@ for (let c of cases) {
     //   reposUpdated = true;
     // }
 
-    child_process.execSync(esyiCommand, {
-      cwd: sandboxPath,
-      stdio: 'inherit',
-    });
+
+    // Unfortunately, the legacy install fails intermittently -
+      // this isn't a Windows specific issue, but on other platforms,
+      // we're defaulting to `esyi` which is more reliable.
+
+    for(let i = 0; i < 3; i++) {
+        try {
+            child_process.execSync(esyiCommand, {
+              cwd: sandboxPath,
+              stdio: 'inherit',
+            });
+        } catch(ex) {
+            console.warn("esy legacy-install failed with: " + ex.toString())
+        }
+    }
 
     child_process.execSync(`${ESY} build`, {
       cwd: sandboxPath,
