@@ -5,6 +5,7 @@ cache:
     - C:\Users\appveyor\.opam
 
 install:
+    - npm install
     - powershell ./setup-esy.ps1
 
 build_script:
