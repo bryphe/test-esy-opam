@@ -125,13 +125,13 @@ for (let c of cases) {
 
   // HACK: Windows requires a version of the ocaml package that has the environment variables properly setup,
   // so ignore the 'tooclhain' option for now on windows
-  const toolchains = process.platform === "win32" ? "esy-ocaml/ocaml#6aacc05" : c.toolchains
+  const toolchains = process.platform === "win32" ? ["esy-ocaml/ocaml#6aacc05"] : c.toolchains
 
   for (let toolchain of toolchains) {
 
     console.log(`*** Testing ${c.name} with ocaml@${toolchain} ***`);
 
-    const sandboxPath = path.join(cwd, '_build', c.name, toolchain);
+    const sandboxPath = path.join(cwd, '_build', c.name, "ocaml");
 
     const packageJson = {
       name: `test-${c.name}`,
