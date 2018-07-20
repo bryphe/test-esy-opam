@@ -6,6 +6,7 @@ cache:
 
 install:
     - npm install
+    - npm install -g rimraf
     - powershell ./setup-esy.ps1
 
 build_script:
@@ -16,8 +17,11 @@ build_script:
     - powershell ./build-esy.ps1
 
 test_script:
+    # Once we're done building, we need to REMOVE the `.bash_profile` -> it will initialize OPAM which will conflict
+    # with esy's isolated environment
+    - rimraf C:/Users/appveyor/.bash_profile
     - set ESY=C:/projects/esy/_release/_build/default/esy/bin/esyCommand.exe
-    - set HOME=C:/User/appveyor
+    - set HOME=C:/Users/appveyor
     - echo $ESY
     - node test.js
 
