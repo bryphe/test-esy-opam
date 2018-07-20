@@ -20,3 +20,6 @@ test_script:
     - set HOME=C:/User/appveyor
     - echo $ESY
     - node test.js
+
+on_finish:
+      - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
