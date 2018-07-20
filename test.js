@@ -151,12 +151,12 @@ for (let c of cases) {
       JSON.stringify(packageJson, null, 2)
     );
 
-    let esyiCommand = ESYI;
-    if (reposUpdated) {
-      esyiCommand = `${ESY} legacy-install`;
-    } else {
-      reposUpdated = true;
-    }
+    let esyiCommand = `${ESY} legacy-install`
+    // if (reposUpdated) {
+    //   esyiCommand = `${ESY} legacy-install`;
+    // } else {
+    //   reposUpdated = true;
+    // }
 
     child_process.execSync(esyiCommand, {
       cwd: sandboxPath,
