@@ -110,7 +110,7 @@ const rmSync = require('rimraf').sync;
 
 const ESY = process.env.ESY || 'esy';
 
-child_process.execSync(`which ${ESY}`, {stdio: 'inherit'});
+child_process.execSync(`${ESY} --help`, {stdio: 'inherit'});
 
 const cwd = __dirname;
 
