@@ -17,5 +17,6 @@ build_script:
 
 test_script:
     - set ESY=C:/projects/esy/_release/_build/default/esy/bin/esyCommand.exe
+    - set HOME=C:/User/appveyor
     - echo $ESY
     - node test.js
