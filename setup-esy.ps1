@@ -3,7 +3,7 @@ npm install -g yarn
 git clone https://github.com/esy/esy C:/projects/esy
 
 cd C:/projects/esy
-git checkout 45f1142
+git checkout master
 git submodule update --init --recursive
 
 npm install esy-bash
